@@ -14,12 +14,12 @@ class ConfigManager(Manager):
     def load():
         return ConfigManager.__instance
 
-    def load_settings_file(self, file_name="settings"):
-        module_folder = ModulesLoader.get_module_content_folder("config")
+    def load_settings_file(self, module="config", file_name="settings"):
+        module_folder = ModulesLoader.get_module_content_folder(module)
 
-        return yaml.safe_load(open("{}/{}.yaml".format(module_folder, file_name)))
+        return yaml.safe_load(open("{}/config/{}.yaml".format(module_folder, file_name)))
 
-    def save_settings_file(self, settings, file_name="settings"):
-        module_folder = ModulesLoader.get_module_content_folder("config")
+    def save_settings_file(self, settings, module="config", file_name="settings"):
+        module_folder = ModulesLoader.get_module_content_folder(module)
 
-        yaml.safe_dump(settings, open("{}/{}.yaml".format(module_folder, file_name), "w"))
+        yaml.safe_dump(settings, open("{}/config/{}.yaml".format(module_folder, file_name), "w"))
