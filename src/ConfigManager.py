@@ -1,7 +1,7 @@
 import yaml
 
 from modules.pytg.Manager import Manager
-from modules.pytg.ModulesLoader import ModulesLoader
+from modules.pytg.load import get_module_content_folder
 
 class ConfigManager(Manager):
     @staticmethod
@@ -15,11 +15,11 @@ class ConfigManager(Manager):
         return ConfigManager.__instance
 
     def load_settings(self, module="config", file_name="settings"):
-        module_folder = ModulesLoader.get_module_content_folder(module)
+        module_folder = get_module_content_folder(module)
 
         return yaml.safe_load(open("{}/config/{}.yaml".format(module_folder, file_name)))
 
     def save_settings(self, settings, module="config", file_name="settings"):
-        module_folder = ModulesLoader.get_module_content_folder(module)
+        module_folder = get_module_content_folder(module)
 
         yaml.safe_dump(settings, open("{}/config/{}.yaml".format(module_folder, file_name), "w"))
