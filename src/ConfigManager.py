@@ -1,19 +1,9 @@
 import yaml
 
-from modules.pytg.Manager import Manager
-from modules.pytg.load import get_module_content_folder
+from pytg.Manager import Manager
+from pytg.load import get_module_content_folder
 
 class ConfigManager(Manager):
-    @staticmethod
-    def initialize():
-        ConfigManager.__instance = ConfigManager()
-
-        return
-
-    @staticmethod
-    def load():
-        return ConfigManager.__instance
-
     def load_settings(self, module="config", file_name="settings"):
         module_folder = get_module_content_folder(module)
 
