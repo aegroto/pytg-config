@@ -1,7 +1,7 @@
 import yaml
 
-from pytg.Manager import Manager
-from pytg.load import get_module_content_folder
+from modbo.Manager import Manager
+from modbo.load import get_module_content_folder
 
 class ConfigManager(Manager):
     def load_settings(self, module="config", file_name="settings"):
